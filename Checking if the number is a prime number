@@ -2,9 +2,7 @@ import java.util.Scanner;
 import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
-        //sprawdz czy podana liczba jest liczba pierwsza
-
-        //najszybszą metodą sprawdzania czy liczba jest pierwsza jest sprawdzenie jej podzielności przez liczby od 1 do pierwiastek z a
+        //To check if the number is prime, the best method is to check if it's divisible by numbers from 2 to √a
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj liczbę: ");
@@ -32,7 +30,6 @@ public class Main {
         } else {
             System.out.println("1 nie jest liczba pierwsza");
         }
-
 
     }
 }
