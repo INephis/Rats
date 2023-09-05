@@ -5,30 +5,30 @@ public class Main {
         //To check if the number is prime, the best method is to check if it's divisible by numbers from 2 to √a
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj liczbę: ");
+        System.out.println("Enter your number: ");
         int a = scanner.nextInt();
-        int dzielniki=1;
+        int dividers=1;
 
         if(a!=1) {
             for (int i = 1; i <= (int)Math.sqrt(a); i++) {
                 if (a % i == 0) {
-                    dzielniki++;
+                    dividers++;
                 }
             }
 
-            if(dzielniki>2){
-                System.out.println("Liczba NIE jest pierwsza");
-                System.out.println("Dzielniki: ");
+            if(dividers>2){
+                System.out.println("The number is NOT prime.");
+                System.out.println("Dividers: ");
                 for (int i = 1; i <= a; i++) {
                     if (a % i == 0) {
                         System.out.print(i + "  |  ");
                     }
                 }
             }else {
-                System.out.println("Liczba jest pierwsza");
+                System.out.println("The number is prime.");
             }
         } else {
-            System.out.println("1 nie jest liczba pierwsza");
+            System.out.println("1 is NOT a prime number");
         }
 
     }
