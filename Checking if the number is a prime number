@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main {
+    public static void main(String[] args) {
+        //sprawdz czy podana liczba jest liczba pierwsza
+
+        //najszybszą metodą sprawdzania czy liczba jest pierwsza jest sprawdzenie jej podzielności przez liczby od 1 do pierwiastek z a
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj liczbę: ");
+        int a = scanner.nextInt();
+        int dzielniki=1;
+
+        if(a!=1) {
+            for (int i = 1; i <= (int)Math.sqrt(a); i++) {
+                if (a % i == 0) {
+                    dzielniki++;
+                }
+            }
+
+            if(dzielniki>2){
+                System.out.println("Liczba NIE jest pierwsza");
+                System.out.println("Dzielniki: ");
+                for (int i = 1; i <= a; i++) {
+                    if (a % i == 0) {
+                        System.out.print(i + "  |  ");
+                    }
+                }
+            }else {
+                System.out.println("Liczba jest pierwsza");
+            }
+        } else {
+            System.out.println("1 nie jest liczba pierwsza");
+        }
+
+
+    }
+}
