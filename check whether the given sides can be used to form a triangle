@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //to check if it's possible to build a traingle, the longest side must be shorter than the sum of two other sides.
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter lenghts of the triangle's sides: ");
+        System.out.println("a = ");
+        int a = scanner.nextInt();
+        System.out.println("b = ");
+        int b = scanner.nextInt();
+        System.out.println("c = ");
+        int c = scanner.nextInt();
+
+        //finding the longest side
+        int longest = a;
+        int side1 = b;
+        int side2 =c;
+        if(b > longest) {
+            longest = b;
+            side1= a;
+        }
+        if(c > longest) {
+            longest = c;
+            side2 = b;
+        }
+        System.out.println("the longest side is:  " + longest);
+
+        //checking if triagnle is possible to build
+        if(longest < (side1 + side2)) {
+            System.out.println("It's possible to make this triangle");
+            System.out.println(side1 + " + " + side2 + " = " + (side1 + side2) + " > " + longest);
+        } else {
+            System.out.println("It's NOT possible to make this triangle");
+            System.out.println(side1 + " + " + side2 + " = " + (side1 + side2) + " !< " + longest);
+        }
+
+
+    }
+
+}
