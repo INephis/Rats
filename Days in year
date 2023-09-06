@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter these informations: ");
+        System.out.print("Year: ");
+        int year = scanner.nextInt();
+        System.out.print("Month: ");
+        int month = scanner.nextInt();
+        System.out.print("Day: ");
+        int day = scanner.nextInt();
+
+        //checks if the year is the leap year
+        boolean cond1 = year % 4 == 0;
+        boolean cond2 = year % 100 != 0;
+        int countdays = 0;
+        int currmonth = 1;
+        for(int i=1; i<month; i++){
+            switch (currmonth){
+                case 1, 3, 5, 7, 8, 10, 12 -> countdays = countdays + 31;
+                case 4, 6, 9, 11 -> countdays = countdays + 30;
+                case 2 -> {
+                    if(cond1 && cond2){
+                        countdays = countdays + 29;
+                    } else {
+                        countdays = countdays + 28;
+                    }
+                }
+            }
+            currmonth++;
+        }
+        countdays = countdays + day;
+
+        System.out.println(countdays + " days has passed since the beggining of the year" );
+
+
+    }
+
+}
