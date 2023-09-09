@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the price: ");
+        double priceD = scanner.nextDouble();
+        int price = (int)(priceD*100);
+        
+        //to prevent doubles information loss we use ints
+        int denomination[] = {50000, 20000, 10000,
+                          5000, 2000, 1000, 500, 200, 100,
+                          50, 20, 10, 5, 2, 1};
+        int tmp = price;
+
+            for(int i=0; i < denomination.length; i++){
+               int amount = 0;
+
+                while(tmp >= denomination[i]){
+                    tmp = tmp - denomination[i];
+                    amount++;
+                }
+
+                if(amount > 0){
+                    if(denomination[i] >= 100)
+                    System.out.println(amount + " * " + (denomination[i]/100) + " zl" );
+                    else
+                    System.out.println(amount + " * " + denomination[i] + " gr");
+                }
+            }
+
+    }
+}
