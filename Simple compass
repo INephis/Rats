@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Where do you want to move?");
+        System.out.println("Press A or D");
+        char direction = scanner.next().charAt(0);
+        int a = 0;
+
+        while(direction != 'Q' && direction != 'q'){
+
+        if(direction=='A' || direction=='a')
+            a = a+1;
+        else if(direction == 'D' || direction == 'd')
+            a =a-1;
+        else {
+            System.out.println("Wrong direction. Press again.");
+        }
+        switch(Math.abs(a%4)){
+            case 0 -> System.out.println('\u2191');
+            case 1 -> System.out.println('\u2192');
+            case 2 -> System.out.println('\u2193');
+            case 3 -> System.out.println('\u2190');
+        }
+        direction = scanner.next().charAt(0);
+        }
+        System.out.println("End of program");
+
+    }
+}
