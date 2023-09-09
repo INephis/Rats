@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Enter size of the diamonds side:");
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        //j < i+size     <- cuts upper right corner
+        //j > i-size     <- bottom left corner
+        //i > 2*size - size - j    <-upper left corner
+        //i < 2*size + size - j    <-bottom right corner
+
+       for(int i=0; i<2*size+1; i++){
+           for(int j =0; j<2*size+1; j++){
+               if( j < i+size  && j > i-size && i > 2*size - size - j  && i < 2*size + size - j)
+               System.out.print("* ");
+               else
+               System.out.print(". ");
+           }
+           System.out.println();
+       }
+
+    }
+}
