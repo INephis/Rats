@@ -1,0 +1,55 @@
+import java.lang.Math;
+
+public class Main {
+    public static void main(String[] args) {
+
+        long arr[] = new long[10];
+        for(int i=0; i<= arr.length - 1; i++){
+            arr[i] = i+1;
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+
+
+        boolean cond = condition(arr);
+        do{
+            int a = (int) (Math.random()*10) ;
+            int b = (int) (Math.random()*10) ;
+            System.out.println("indexes to swap: " + a + ", " + b);
+            long tmp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = tmp;
+            
+            //=-=-=-=- show array to check swapped indexes
+            System.out.println();
+//            for(int i=0; i<= arr.length - 1; i++){
+//                System.out.print(arr[i] + ", ");
+//            }
+
+            cond = condition(arr);
+            System.out.println(cond);
+        }while(cond);
+
+        System.out.println();
+        for(int i=0; i<= arr.length - 1; i++){
+            System.out.print(arr[i] + ", ");
+        }
+    }
+
+    public static boolean condition(long arr[]){
+        boolean condition = true;
+        int trues = 0;
+        
+        for(int i=0; i< arr.length -1; i++){
+            if(arr[i+1] == arr[i] + 1) 
+               trues++;
+        }
+
+        if(trues >= 1)
+            condition = true;
+        else
+            condition = false;
+
+        return condition;
+    }
+}
