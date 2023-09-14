@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+
+
+        int[] arr = {1, 1,   2, 2, 2,   3,   4, 4,   6, 6,   7,7,7,7,7};
+        int counter = 0;
+        int value = 1;
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == value)
+                counter++;
+            else {
+                i--;
+                value++;
+                counter = 0;
+            }
+
+            if(counter != 0 && i == arr.length-1 ||  counter != 0 && arr[i] != arr[i+1])
+                System.out.println(value + " occurs " + counter + " times ");
+        }
+
+    }
+}
