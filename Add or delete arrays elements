@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    int[] arr = {-2, 1, 5};
+    int size = arr.length;
+
+    Scanner scanner = new Scanner(System.in);
+    String decision = scanner.nextLine();
+
+    while (!(decision.equals("quit"))){
+
+        switch(decision){
+            case "add" :
+                System.out.println("What number you want to add :");
+                int a = scanner.nextInt();
+                scanner.nextLine();
+
+                if (a >= -5 && a <= 5) {
+
+                    int[] tmp = new int[size];
+                    for (int i = 0; i < arr.length; i++) {
+                        tmp[i] = arr[i];
+                    } //move elements to tmp array
+                    size++;
+                    arr = new int[size];
+
+                    for (int i = 0; i < arr.length - 1; i++) {
+                        arr[i] = tmp[i];
+                    } //move elements from tmp to new, extended arr
+                    arr[arr.length - 1] = a; //last index is provided number
+
+                } else {
+                    System.out.println();
+                    System.out.println("the number is not in the range -5 - 5");
+                }
+
+                for (int i = 0; i < arr.length; i++) {
+                    System.out.print(arr[i] + " ");
+                } //list the elements of an array
+                break;
+            case "get":
+                System.out.println("Last element of an array is: " + arr[arr.length-1]);
+                int[] tmp = new int[arr.length-1];
+                for(int i=0; i<tmp.length; i++){
+                    tmp[i] = arr[i];
+                }
+                size--;
+                arr = new int[size];
+                for(int i=0; i<arr.length; i++){
+                    arr[i] = tmp[i];
+                    System.out.print(arr[i] + " ");
+                }
+                break;
+            default:
+                System.out.println("Invalid command");
+                break;
+        }
+
+        System.out.println("What do you want to do now? ");
+        decision = scanner.nextLine();
+    }
+
+
+    }
+}
+
