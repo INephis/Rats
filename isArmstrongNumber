@@ -1,0 +1,31 @@
+import java.lang.Math;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(isArmstrongNumber(152));
+    }
+
+    static boolean isArmstrongNumber(int wrt){
+
+        int digcount = 0;
+        int sum = 0;
+        int tmp=wrt;
+        do{
+            tmp = tmp / 10;
+            digcount++;
+        }while(tmp>0);
+
+        System.out.println(digcount);
+
+        tmp = wrt;
+
+        for(int i=0; i<digcount; i++){
+            int digit = tmp - (tmp/10) * 10;
+            tmp = tmp/10;
+            sum = sum + (int)(Math.pow(digit,digcount));
+        }
+        System.out.println(sum);
+
+        return sum == wrt;
+    }
+}
